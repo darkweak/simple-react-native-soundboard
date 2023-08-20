@@ -10,8 +10,8 @@
     "lint": "eslint ."
   },
   "dependencies": {
-    "react": "17.0.2",
-    "react-native": "0.68.0",
+    "react": "18.1.0",
+    "react-native": "0.69.12",
     "react-native-sound": "^0.11.2",
     "tailwind-rn": "^4.2.0"
   },

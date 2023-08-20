@@ -2,15 +2,16 @@ import React, { useMemo } from 'react';
 import { Text, View } from 'react-native';
 import { SimpleList } from './Simple';
 import { useTailwind } from 'tailwind-rn';
+import { Item as ItemType } from '../../types/Item';
 
 interface innerProps {
-    items: ItemType[];
+    items: ReadonlyArray<ItemType>;
 }
 
 export const Alphabetical = ({ items }: innerProps) => {
 	const tailwind = useTailwind();
     const mappedList = useMemo(() => {
-        let list = {};
+        let list: Record<string, Array<ItemType>> = {};
         items.forEach(item => {
             let index = item.name.charAt(0).toLowerCase();
             if (list[index]) {

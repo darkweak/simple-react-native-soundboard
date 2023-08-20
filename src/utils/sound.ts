@@ -1,74 +1,100 @@
-import Sound from 'react-native-sound';
-Sound.setCategory('Playback');
+import Sound from "react-native-sound";
+Sound.setCategory("Playback");
 
-const assetPath = '../assets/';
+const assetPath = "../assets/";
 
-const ah = new Sound(require(assetPath + 'ah.mp3'), console.log);
-const antoine_daniel_tg = new Sound(require(assetPath + 'antoine_daniel_tg.mp3'), console.log);
-const cependant = new Sound(require(assetPath + 'cependant.mp3'), console.log);
-const cheh = new Sound(require(assetPath + 'cheh.mp3'), console.log);
-const cest_non = new Sound(require(assetPath + 'cest_non.mp3'), console.log);
-const coucou_miss = new Sound(require(assetPath + 'coucou_miss.mp3'), console.log);
-const coucou = new Sound(require(assetPath + 'coucou.mp3'), console.log);
-const david_goodenough = new Sound(require(assetPath + 'david_goodenough.mp3'), console.log);
-const deja_vu = new Sound(require(assetPath + 'deja_vu.mp3'), console.log);
-const enorme = new Sound(require(assetPath + 'enorme.mp3'), console.log);
-const etchebest = new Sound(require(assetPath + 'etchebest.mp3'), console.log);
-const feur = new Sound(require(assetPath + 'feur.mp3'), console.log);
-const harry_potter = new Sound(require(assetPath + 'harry_potter.mp3'), console.log);
-const helicopter = new Sound(require(assetPath + 'helicopter.mp3'), console.log);
-const honteux = new Sound(require(assetPath + 'honteux.mp3'), console.log);
-const joyeux_noel_encule = new Sound(require(assetPath + 'joyeux_noel_encule.mp3'), console.log);
-const koba_la_D = new Sound(require(assetPath + 'koba_la_D.mp3'), console.log);
-const mechant = new Sound(require(assetPath + 'mechant.mp3'), console.log);
-const minecraft_hurt = new Sound(require(assetPath + 'minecraft_hurt.mp3'), console.log);
-const motus = new Sound(require(assetPath + 'motus.mp3'), console.log);
-const ouais_mais_cest_pas_toi_qui_decide = new Sound(require(assetPath + 'ouais_mais_cest_pas_toi_qui_decide.mp3'), console.log);
-const pauvres = new Sound(require(assetPath + 'pauvres.mp3'), console.log);
-const pornhub = new Sound(require(assetPath + 'pornhub.mp3'), console.log);
-const prout_reverb = new Sound(require(assetPath + 'prout_reverb.mp3'), console.log);
-const prout = new Sound(require(assetPath + 'prout.mp3'), console.log);
-const rire_de_droite = new Sound(require(assetPath + 'rire_de_droite.mp3'), console.log);
-const sarkozy = new Sound(require(assetPath + 'sarkozy.mp3'), console.log);
-const ta_gueule = new Sound(require(assetPath + 'ta_gueule.mp3'), console.log);
-const tut_tut_fils_de_pute = new Sound(require(assetPath + 'tut_tut_fils_de_pute.mp3'), console.log);
-const tut_tut_grosse_pute = new Sound(require(assetPath + 'tut_tut_grosse_pute.mp3'), console.log);
-const wingardium_leviosa = new Sound(require(assetPath + 'wingardium_leviosa.mp3'), console.log);
-const wow = new Sound(require(assetPath + 'wow.mp3'), console.log);
+const importSound = (req: NodeRequire): Sound => {
+  return new Sound(req, console.log);
+};
+
+const ah = importSound(require(assetPath + "ah.mp3"));
+const antoine_daniel_tg = importSound(
+  require(assetPath + "antoine_daniel_tg.mp3")
+);
+const ca_va_peter = importSound(require(assetPath + "ca_va_peter.mp3"));
+const cependant = importSound(require(assetPath + "cependant.mp3"));
+const cheh = importSound(require(assetPath + "cheh.mp3"));
+const cest_non = importSound(require(assetPath + "cest_non.mp3"));
+const coucou_miss = importSound(require(assetPath + "coucou_miss.mp3"));
+const coucou = importSound(require(assetPath + "coucou.mp3"));
+const couisine = importSound(require(assetPath + "couisine.mp3"));
+const david_goodenough = importSound(
+  require(assetPath + "david_goodenough.mp3")
+);
+const deja_vu = importSound(require(assetPath + "deja_vu.mp3"));
+const enorme = importSound(require(assetPath + "enorme.mp3"));
+const etchebest = importSound(require(assetPath + "etchebest.mp3"));
+const feur = importSound(require(assetPath + "feur.mp3"));
+const harry_potter = importSound(require(assetPath + "harry_potter.mp3"));
+const helicopter = importSound(require(assetPath + "helicopter.mp3"));
+const honteux = importSound(require(assetPath + "honteux.mp3"));
+const john_cena = importSound(require(assetPath + "john_cena.mp3"));
+const joyeux_noel_encule = importSound(
+  require(assetPath + "joyeux_noel_encule.mp3")
+);
+const koba_la_D = importSound(require(assetPath + "koba_la_D.mp3"));
+const mechant = importSound(require(assetPath + "mechant.mp3"));
+const minecraft_hurt = importSound(require(assetPath + "minecraft_hurt.mp3"));
+const motus = importSound(require(assetPath + "motus.mp3"));
+const ouais_mais_cest_pas_toi_qui_decide = importSound(
+  require(assetPath + "ouais_mais_cest_pas_toi_qui_decide.mp3")
+);
+const pauvres = importSound(require(assetPath + "pauvres.mp3"));
+const plein_le_cul = importSound(require(assetPath + "plein_le_cul.mp3"));
+const pornhub = importSound(require(assetPath + "pornhub.mp3"));
+const prout_reverb = importSound(require(assetPath + "prout_reverb.mp3"));
+const prout = importSound(require(assetPath + "prout.mp3"));
+const rire_de_droite = importSound(require(assetPath + "rire_de_droite.mp3"));
+const sarkozy = importSound(require(assetPath + "sarkozy.mp3"));
+const ta_gueule = importSound(require(assetPath + "ta_gueule.mp3"));
+const tut_tut_fils_de_pute = importSound(
+  require(assetPath + "tut_tut_fils_de_pute.mp3")
+);
+const tut_tut_grosse_pute = importSound(
+  require(assetPath + "tut_tut_grosse_pute.mp3")
+);
+const wingardium_leviosa = importSound(
+  require(assetPath + "wingardium_leviosa.mp3")
+);
+const wow = importSound(require(assetPath + "wow.mp3"));
 
 export const initializeSounds = () => null;
 
-export const mappedSounds: Record<string, any> = {
-    ah,
-    antoine_daniel_tg,
-    cependant,
-    cest_non,
-    cheh,
-    coucou_miss,
-    coucou,
-    david_goodenough,
-    deja_vu,
-    enorme,
-    etchebest,
-    feur,
-    harry_potter,
-    helicopter,
-    honteux,
-    joyeux_noel_encule,
-    koba_la_D,
-    mechant,
-    minecraft_hurt,
-    motus,
-    ouais_mais_cest_pas_toi_qui_decide,
-    pauvres,
-    pornhub,
-    prout_reverb,
-    prout,
-    rire_de_droite,
-    sarkozy,
-    ta_gueule,
-    tut_tut_fils_de_pute,
-    tut_tut_grosse_pute,
-    wingardium_leviosa,
-    wow,
-}
+export const mappedSounds: Record<string, Sound> = {
+  ah,
+  antoine_daniel_tg,
+  ca_va_peter,
+  cependant,
+  cest_non,
+  cheh,
+  coucou_miss,
+  coucou,
+  couisine,
+  david_goodenough,
+  deja_vu,
+  enorme,
+  etchebest,
+  feur,
+  harry_potter,
+  helicopter,
+  honteux,
+  john_cena,
+  joyeux_noel_encule,
+  koba_la_D,
+  mechant,
+  minecraft_hurt,
+  motus,
+  ouais_mais_cest_pas_toi_qui_decide,
+  pauvres,
+  plein_le_cul,
+  pornhub,
+  prout_reverb,
+  prout,
+  rire_de_droite,
+  sarkozy,
+  ta_gueule,
+  tut_tut_fils_de_pute,
+  tut_tut_grosse_pute,
+  wingardium_leviosa,
+  wow,
+};
