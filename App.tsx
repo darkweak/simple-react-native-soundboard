@@ -1,7 +1,14 @@
 import React from 'react';
 import { StyleSheet, SafeAreaView, ScrollView } from 'react-native';
-import { Alphabetical } from './src/components/List/Alphabetical';
-import { items } from './src/assets/sounds.json';
+import { NavigationContainer } from '@react-navigation/native';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import Icon from 'react-native-vector-icons/Feather';
+import {
+  SafeAreaProvider,
+} from 'react-native-safe-area-context';
+import { Profile } from './src/screens/profile';
+import { Home } from './src/screens/home';
+import { StoreProvider } from './src/context/store';
 import { TailwindProvider } from 'tailwind-rn';
 import utilities from './tailwind.json';
 import { initializeSounds } from './src/utils/sound';
@@ -23,17 +30,38 @@ const tailwindExtensions = {
   }
 }
 
+const Tab = createBottomTabNavigator();
+
 export default function App() {
   return (
-    <TailwindProvider utilities={{...utilities, ...tailwindExtensions}}>
-      <SafeAreaView style={styles.container}>
-        <ScrollView>
-          <Alphabetical 
-            items={items}
-          />
-        </ScrollView>
-      </SafeAreaView>
-	</TailwindProvider>
+    
+    <SafeAreaProvider>
+      <StoreProvider>
+        <TailwindProvider utilities={{...utilities, ...tailwindExtensions}}>
+          <NavigationContainer>
+            <Tab.Navigator>
+              <Tab.Screen 
+                name="Home"
+                component={Home} 
+                options={{ 
+                  headerShown: false, 
+                  tabBarIcon: ({ color, size }) => (
+                    <Icon name="home" color={color} size={size} />
+                  ), 
+                }} />
+              <Tab.Screen 
+                name="Profile" 
+                component={Profile}
+                options={{ 
+                  tabBarIcon: ({ color, size }) => (
+                    <Icon name="user" color={color} size={size} />
+                  ), 
+                }} />
+            </Tab.Navigator>
+          </NavigationContainer>
+        </TailwindProvider>
+      </StoreProvider>
+    </SafeAreaProvider>
   );
 }
 

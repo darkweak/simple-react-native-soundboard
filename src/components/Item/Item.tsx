@@ -4,6 +4,7 @@ import { useTailwind } from 'tailwind-rn';
 import Sound from 'react-native-sound';
 import { Item as ItemType } from '../../types/Item';
 import { mappedSounds } from '../../utils/sound';
+import { useStore } from '../../context/store';
 
 interface innerProps {
     size: number;
@@ -11,7 +12,8 @@ interface innerProps {
 }
 
 export const Item = ({ size, item }: innerProps) => {
-	const tailwind = useTailwind();
+    const tailwind = useTailwind();
+    const { isTextMode } = useStore();
 
     const [sound, setSound] = React.useState<Sound>();
 
@@ -32,7 +34,7 @@ export const Item = ({ size, item }: innerProps) => {
                     }
                     playSound(item.name)
                 }}>
-                    <Text style={tailwind('text-3xl')}>{ item.image }</Text>
+                    <Text style={tailwind('text-3xl')}>{ isTextMode ? item.name : item.image }</Text>
                 </TouchableOpacity>
             </View>
         </View>
