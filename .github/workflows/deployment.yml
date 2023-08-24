@@ -1,5 +1,8 @@
 name: iOS deployment
 
+env:
+  BUILD_VERSION: "0.1.4"
+
 on:
   workflow_dispatch:
   push:
@@ -63,10 +66,10 @@ jobs:
           team-id: ${{ secrets.IOS_TEAM_ID }}
           certificate-password: ${{ secrets.IOS_CERTIFICATE_PASSWORD }}
           workspace-path: ios/Soundboard.xcworkspace
-          increment-build-number: 0.1.1
+          increment-build-number: ${{ env.BUILD_VERSION }}
           scheme: Soundboard
         env:
-          VERSION_ID: 0.1.1
+          VERSION_ID: ${{ env.BUILD_VERSION }}
 
       - name: "Upload app to TestFlight"
         uses: apple-actions/upload-testflight-build@v1
@@ -76,5 +79,4 @@ jobs:
           api-key-id: ${{ secrets.APPSTORE_API_KEY_ID }}
           api-private-key: ${{ secrets.APPSTORE_API_PRIVATE_KEY }}
         env:
-          VERSION_ID: 0.1.1
-
+          VERSION_ID: ${{ env.BUILD_VERSION }}

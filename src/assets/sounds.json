@@ -6,7 +6,8 @@
         },
         {
             "name": "antoine_daniel_tg",
-            "image": "🤬"
+            "image": "🤬",
+            "sensitive": true
         },
         {
             "name": "ca_va_peter",
@@ -26,7 +27,8 @@
         },
         {
             "name": "coucou",
-            "image": "🍆"
+            "image": "🍆",
+            "sensitive": true
         },
         {
             "name": "coucou_miss",
@@ -34,7 +36,8 @@
         },
         {
             "name": "couisine",
-            "image": "👩‍🍳"
+            "image": "👩‍🍳",
+            "sensitive": true
         },
         {
             "name": "david_goodenough",
@@ -50,7 +53,8 @@
         },
         {
             "name": "etchebest",
-            "image": "👨‍🦲"
+            "image": "👨‍🦲",
+            "sensitive": true
         },
         {
             "name": "feur",
@@ -74,11 +78,13 @@
         },
         {
             "name": "joyeux_noel_encule",
-            "image": "🎅"
+            "image": "🎅",
+            "sensitive": true
         },
         {
             "name": "koba_la_D",
-            "image": "🕵️"
+            "image": "🕵️",
+            "sensitive": true
         },
         {
             "name": "mechant",
@@ -98,23 +104,28 @@
         },
         {
             "name": "pauvres",
-            "image": "💸"
+            "image": "💸",
+            "sensitive": true
         },
         {
             "name": "plein_le_cul",
-            "image": "😤"
+            "image": "😤",
+            "sensitive": true
         },
         {
             "name": "pornhub",
-            "image": "🍆"
+            "image": "🍆",
+            "sensitive": true
         },
         {
             "name": "prout_reverb",
-            "image": "💨"
+            "image": "💨",
+            "sensitive": true
         },
         {
             "name": "prout",
-            "image": "💨"
+            "image": "💨",
+            "sensitive": true
         },
         {
             "name": "rire_de_droite",
@@ -130,11 +141,13 @@
         },
         {
             "name": "tut_tut_fils_de_pute",
-            "image": "🚗"
+            "image": "🚗",
+            "sensitive": true
         },
         {
             "name": "tut_tut_grosse_pute",
-            "image": "🚙"
+            "image": "🚙",
+            "sensitive": true
         },
         {
             "name": "wingardium_leviosa",
