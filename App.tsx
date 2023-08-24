@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, SafeAreaView, ScrollView } from 'react-native';
+import { StyleSheet, StatusBar } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import Icon from 'react-native-vector-icons/Feather';
@@ -36,6 +36,7 @@ export default function App() {
   return (
     
     <SafeAreaProvider>
+      <StatusBar barStyle="dark-content" translucent={true} />
       <StoreProvider>
         <TailwindProvider utilities={{...utilities, ...tailwindExtensions}}>
           <NavigationContainer>
@@ -43,14 +44,16 @@ export default function App() {
               <Tab.Screen 
                 name="Home"
                 component={Home} 
-                options={{ 
-                  headerShown: false, 
+                key="home"
+                options={{
+                  headerShown: false,
                   tabBarIcon: ({ color, size }) => (
                     <Icon name="home" color={color} size={size} />
                   ), 
                 }} />
               <Tab.Screen 
                 name="Profile" 
+                key="profile"
                 component={Profile}
                 options={{ 
                   tabBarIcon: ({ color, size }) => (

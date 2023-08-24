@@ -41,7 +41,7 @@ export const Alphabetical = ({ items }: innerProps) => {
         }}>
             <TextInput
                 style={styles.input}
-                placeholderTextColor={PlatformColor('systemFill')}
+                placeholderTextColor={PlatformColor('systemGray')}
                 placeholder="Search a sound"
                 value={search}
                 onChangeText={setSearch}
