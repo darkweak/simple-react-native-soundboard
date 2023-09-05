@@ -1,7 +1,9 @@
-import React from "react";
+import React from 'react';
 import { items } from '../../../src/assets/sounds.json';
-import { Alphabetical } from "../../components/List/Alphabetical";
+import { Alphabetical } from '../../components/List/Alphabetical';
 
-export const Home = () => {
-    return <Alphabetical items={items} />
-}
+const Home = () => {
+  return <Alphabetical items={items} />;
+};
+
+export default Home;

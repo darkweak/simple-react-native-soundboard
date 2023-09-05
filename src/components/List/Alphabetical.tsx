@@ -1,72 +1,60 @@
 import React, { useMemo, useState } from 'react';
-import { PlatformColor, ScrollView, StyleSheet, Text, TextInput, View } from 'react-native';
+import { ScrollView, Text, View } from 'react-native';
 import { SimpleList } from './Simple';
 import { useTailwind } from 'tailwind-rn';
 import { Item as ItemType } from '../../types/Item';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { useStore } from '../../context/store';
+import { Input } from '../form/input';
+import { useCustomSounds } from '../../context/sound';
 
 interface innerProps {
     items: ReadonlyArray<ItemType>;
 }
 
 export const Alphabetical = ({ items }: innerProps) => {
-    const insets = useSafeAreaInsets();
-	const tailwind = useTailwind();
-    const { isSensitiveContentEnabled } = useStore();
-    const [search, setSearch] = useState('');
-    const mappedList = useMemo(() => {
-        let list: Record<string, Array<ItemType>> = {};
-        items
-            .filter(item => isSensitiveContentEnabled || !item.sensitive)
-            .filter(item => !search || item.name.includes(search.toLowerCase()) || item.image.includes(search))
-            .forEach(item => {
-                let index = item.name.charAt(0).toLowerCase();
-                if (list[index]) {
-                    list[index].push(item)
-                } else {
-                    list[index] = [item]
-                }
-            });
+  const insets = useSafeAreaInsets();
+  const tailwind = useTailwind();
+  const { isSensitiveContentEnabled } = useStore();
+  const [search, setSearch] = useState('');
+  const customSounds = useCustomSounds();
+  const mappedList = useMemo(() => {
+    const list: Record<string, Array<ItemType>> = {};
+    [...items, ...customSounds].sort((a,b) => (a.name > b.name) ? 1 : ((b.name > a.name) ? -1 : 0))
+      .filter(item => isSensitiveContentEnabled || !item.sensitive)
+      .filter(item => !search || item.name.includes(search.toLowerCase()) || item.image.includes(search))
+      .forEach(item => {
+        const index = item.name.charAt(0).toLowerCase();
+        if (list[index]) {
+          list[index].push(item);
+        } else {
+          list[index] = [item];
+        }
+      });
 
-        return list;
-    }, [isSensitiveContentEnabled, items, search]);
+    return list;
+  }, [customSounds, isSensitiveContentEnabled, items, search]);
 
-    return (
-        <View style={{
-            flex: 1,
-            paddingTop: insets.top,
-            paddingLeft: insets.left,
-            paddingRight: insets.right,
-        }}>
-            <TextInput
-                style={styles.input}
-                placeholderTextColor={PlatformColor('systemGray')}
-                placeholder="Search a sound"
-                value={search}
-                onChangeText={setSearch}
-            />
-            <ScrollView>
-                {
-                    Object.keys(mappedList).sort().map(k => (
-                        <View key={k}>
-                            <Text style={tailwind('text-3xl pt-2 px-4 font-extrabold')}>{k}</Text>
-                            <SimpleList items={mappedList[k]} />
-                        </View>
-                    ))
-                }
-            </ScrollView>
-        </View>
-    )
-}
-
-const styles = StyleSheet.create({
-  input: {
-    fontSize: 20,
-    margin: 10,
-    padding: 10,
-    backgroundColor: PlatformColor('label'),
-    color: "#000",
-    borderRadius: 15,
-  },
-});
+  return (
+    <View style={{
+      flex: 1,
+      paddingTop: insets.top,
+      paddingLeft: insets.left,
+      paddingRight: insets.right,
+    }}>
+      <View style={tailwind('px-4 py-2')}>
+        <Input placeholder='Search a sound' setValue={setSearch} value={search} />
+      </View>
+      <ScrollView>
+        {
+          Object.keys(mappedList).sort().map(k => (
+            <View key={k}>
+              <Text style={tailwind('text-3xl pt-2 px-4 font-extrabold')}>{k}</Text>
+              <SimpleList items={mappedList[k]} />
+            </View>
+          ))
+        }
+      </ScrollView>
+    </View>
+  );
+};

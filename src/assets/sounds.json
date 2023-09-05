@@ -150,6 +150,10 @@
             "sensitive": true
         },
         {
+            "name": "violons",
+            "image": "🎻"
+        },
+        {
             "name": "wingardium_leviosa",
             "image": "🪄"
         },

@@ -12,31 +12,31 @@ interface innerProps {
 }
 
 export const Item = ({ size, item }: innerProps) => {
-    const tailwind = useTailwind();
-    const { isTextMode } = useStore();
+  const tailwind = useTailwind();
+  const { isTextMode } = useStore();
 
-    const [sound, setSound] = React.useState<Sound>();
+  const [sound, setSound] = React.useState<Sound>();
 
-    function playSound(name: string) {
-        const sound = mappedSounds[name];
-        setSound(sound);
-        sound.play();
-    }
+  function playSound(item: ItemType) {
+    const sound = item.sound ?? mappedSounds[item.name];
+    setSound(sound);
+    sound.play();
+  }
 
-    React.useEffect(() => () => { sound?.release() }, [sound]);
+  React.useEffect(() => () => { sound?.release(); }, [sound]);
 
-    return (
-        <View style={{height: size, width: size}}>
-            <View style={tailwind('p-2 h-full w-full')}>
-                <TouchableOpacity style={tailwind('border rounded-lg bg-white w-full h-full shadow justify-center items-center')} onPress={() => {
-                    if (sound) {
-                        sound.stop()
-                    }
-                    playSound(item.name)
-                }}>
-                    <Text style={tailwind('text-3xl')}>{ isTextMode ? item.name : item.image }</Text>
-                </TouchableOpacity>
-            </View>
-        </View>
-    )
-}
+  return (
+    <View style={{height: size, width: size}}>
+      <View style={tailwind('p-2 h-full w-full')}>
+        <TouchableOpacity style={tailwind('border rounded-lg bg-white w-full h-full shadow justify-center items-center')} onPress={() => {
+          if (sound) {
+            sound.stop();
+          }
+          playSound(item);
+        }}>
+          <Text style={tailwind('text-3xl')}>{ isTextMode ? item.name : item.image }</Text>
+        </TouchableOpacity>
+      </View>
+    </View>
+  );
+};
