@@ -1,7 +1,7 @@
 name: iOS deployment
 
 env:
-  BUILD_VERSION: "0.1.6"
+  BUILD_VERSION: "0.1.7"
 
 on:
   workflow_dispatch:

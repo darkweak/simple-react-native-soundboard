@@ -23,7 +23,7 @@ export const Item = ({ size, item }: innerProps) => {
     sound.play();
   }
 
-  React.useEffect(() => () => { sound?.release(); }, [sound]);
+  // React.useEffect(() => () => { sound?.release(); }, [sound]);
 
   return (
     <View style={{height: size, width: size}}>

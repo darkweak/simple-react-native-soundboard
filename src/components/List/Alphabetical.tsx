@@ -1,12 +1,12 @@
 import React, { useMemo, useState } from 'react';
-import { ScrollView, Text, View } from 'react-native';
+import { RefreshControl, ScrollView, Text, View } from 'react-native';
 import { SimpleList } from './Simple';
 import { useTailwind } from 'tailwind-rn';
 import { Item as ItemType } from '../../types/Item';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { useStore } from '../../context/store';
 import { Input } from '../form/input';
-import { useCustomSounds } from '../../context/sound';
+import { useCustomSounds, useRescanCustomSounds } from '../../context/sound';
 
 interface innerProps {
     items: ReadonlyArray<ItemType>;
@@ -18,6 +18,7 @@ export const Alphabetical = ({ items }: innerProps) => {
   const { isSensitiveContentEnabled } = useStore();
   const [search, setSearch] = useState('');
   const customSounds = useCustomSounds();
+  const rescan = useRescanCustomSounds();
   const mappedList = useMemo(() => {
     const list: Record<string, Array<ItemType>> = {};
     [...items, ...customSounds].sort((a,b) => (a.name > b.name) ? 1 : ((b.name > a.name) ? -1 : 0))
@@ -34,6 +35,14 @@ export const Alphabetical = ({ items }: innerProps) => {
 
     return list;
   }, [customSounds, isSensitiveContentEnabled, items, search]);
+  const [isRefreshing, setIsRefreshing] = useState(false);
+  const onRefresh = React.useCallback(() => {
+    setIsRefreshing(true);
+    rescan();
+    setTimeout(() => {
+      setIsRefreshing(false);
+    }, 2000);
+  }, []);
 
   return (
     <View style={{
@@ -45,7 +54,9 @@ export const Alphabetical = ({ items }: innerProps) => {
       <View style={tailwind('px-4 py-2')}>
         <Input placeholder='Search a sound' setValue={setSearch} value={search} />
       </View>
-      <ScrollView>
+      <ScrollView refreshControl={
+        <RefreshControl refreshing={isRefreshing} onRefresh={onRefresh} />
+      }>
         {
           Object.keys(mappedList).sort().map(k => (
             <View key={k}>
