@@ -1,14 +1,10 @@
 {
-	"mx-8": {
+	"m-auto": {
 		"style": {
-			"marginLeft": 32,
-			"marginRight": 32
-		}
-	},
-	"my-4": {
-		"style": {
-			"marginTop": 16,
-			"marginBottom": 16
+			"marginTop": "auto",
+			"marginRight": "auto",
+			"marginBottom": "auto",
+			"marginLeft": "auto"
 		}
 	},
 	"my-2": {
@@ -20,11 +16,6 @@
 	"flex": {
 		"style": {
 			"display": "flex"
-		}
-	},
-	"h-12": {
-		"style": {
-			"height": 48
 		}
 	},
 	"h-full": {
@@ -47,6 +38,11 @@
 			"justifyContent": "center"
 		}
 	},
+	"justify-between": {
+		"style": {
+			"justifyContent": "space-between"
+		}
+	},
 	"rounded-lg": {
 		"style": {
 			"borderTopLeftRadius": 8,
@@ -63,16 +59,18 @@
 			"borderLeftWidth": 1
 		}
 	},
-	"bg-blue-500": {
+	"border-t": {
 		"style": {
-			"--tw-bg-opacity": 1,
-			"backgroundColor": "rgb(59 130 246 / var(--tw-bg-opacity))"
+			"borderTopWidth": 1
 		}
 	},
-	"bg-blue-700": {
+	"border-slate-200": {
 		"style": {
-			"--tw-bg-opacity": 1,
-			"backgroundColor": "rgb(29 78 216 / var(--tw-bg-opacity))"
+			"--tw-border-opacity": 1,
+			"borderTopColor": "rgb(226 232 240 / var(--tw-border-opacity))",
+			"borderRightColor": "rgb(226 232 240 / var(--tw-border-opacity))",
+			"borderBottomColor": "rgb(226 232 240 / var(--tw-border-opacity))",
+			"borderLeftColor": "rgb(226 232 240 / var(--tw-border-opacity))"
 		}
 	},
 	"bg-white": {
@@ -81,26 +79,12 @@
 			"backgroundColor": "rgb(255 255 255 / var(--tw-bg-opacity))"
 		}
 	},
-	"bg-blue-600": {
-		"style": {
-			"--tw-bg-opacity": 1,
-			"backgroundColor": "rgb(37 99 235 / var(--tw-bg-opacity))"
-		}
-	},
 	"p-2": {
 		"style": {
 			"paddingTop": 8,
 			"paddingRight": 8,
 			"paddingBottom": 8,
 			"paddingLeft": 8
-		}
-	},
-	"p-4": {
-		"style": {
-			"paddingTop": 16,
-			"paddingRight": 16,
-			"paddingBottom": 16,
-			"paddingLeft": 16
 		}
 	},
 	"px-4": {
@@ -115,10 +99,10 @@
 			"paddingBottom": 8
 		}
 	},
-	"px-8": {
+	"py-8": {
 		"style": {
-			"paddingLeft": 32,
-			"paddingRight": 32
+			"paddingTop": 32,
+			"paddingBottom": 32
 		}
 	},
 	"py-4": {
@@ -132,21 +116,37 @@
 			"paddingTop": 8
 		}
 	},
+	"pt-8": {
+		"style": {
+			"paddingTop": 32
+		}
+	},
+	"pt-4": {
+		"style": {
+			"paddingTop": 16
+		}
+	},
+	"pl-4": {
+		"style": {
+			"paddingLeft": 16
+		}
+	},
 	"text-3xl": {
 		"style": {
 			"fontSize": 30,
 			"lineHeight": 36
 		}
 	},
-	"text-base": {
+	"text-lg": {
 		"style": {
-			"fontSize": 16,
-			"lineHeight": 24
+			"fontSize": 18,
+			"lineHeight": 28
 		}
 	},
-	"font-bold": {
+	"text-xl": {
 		"style": {
-			"fontWeight": "700"
+			"fontSize": 20,
+			"lineHeight": 28
 		}
 	},
 	"font-extrabold": {
@@ -154,10 +154,9 @@
 			"fontWeight": "800"
 		}
 	},
-	"text-white": {
+	"font-bold": {
 		"style": {
-			"--tw-text-opacity": 1,
-			"color": "rgb(255 255 255 / var(--tw-text-opacity))"
+			"fontWeight": "700"
 		}
 	}
 }

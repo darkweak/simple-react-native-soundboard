@@ -357,11 +357,15 @@ PODS:
   - ReactNativeFileAccess (3.0.4):
     - React-Core
     - ZIPFoundation (= 0.9.11)
+  - RNCPicker (2.5.0):
+    - React-Core
   - RNReactNativeHapticFeedback (2.0.3):
     - React-Core
   - RNScreens (3.25.0):
     - React-Core
     - React-RCTImage
+  - RNSiriShortcuts (3.2.3):
+    - React
   - RNSound (0.11.2):
     - React-Core
     - RNSound/Core (= 0.11.2)
@@ -433,8 +437,10 @@ DEPENDENCIES:
   - React-runtimeexecutor (from `../node_modules/react-native/ReactCommon/runtimeexecutor`)
   - ReactCommon/turbomodule/core (from `../node_modules/react-native/ReactCommon`)
   - ReactNativeFileAccess (from `../node_modules/react-native-file-access`)
+  - "RNCPicker (from `../node_modules/@react-native-picker/picker`)"
   - RNReactNativeHapticFeedback (from `../node_modules/react-native-haptic-feedback`)
   - RNScreens (from `../node_modules/react-native-screens`)
+  - RNSiriShortcuts (from `../node_modules/react-native-siri-shortcut`)
   - RNSound (from `../node_modules/react-native-sound`)
   - RNVectorIcons (from `../node_modules/react-native-vector-icons`)
   - Yoga (from `../node_modules/react-native/ReactCommon/yoga`)
@@ -527,10 +533,14 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native/ReactCommon"
   ReactNativeFileAccess:
     :path: "../node_modules/react-native-file-access"
+  RNCPicker:
+    :path: "../node_modules/@react-native-picker/picker"
   RNReactNativeHapticFeedback:
     :path: "../node_modules/react-native-haptic-feedback"
   RNScreens:
     :path: "../node_modules/react-native-screens"
+  RNSiriShortcuts:
+    :path: "../node_modules/react-native-siri-shortcut"
   RNSound:
     :path: "../node_modules/react-native-sound"
   RNVectorIcons:
@@ -586,8 +596,10 @@ SPEC CHECKSUMS:
   React-runtimeexecutor: ea78653fbc68bd6f2d3f5e7e311bc5a9dc8bfeca
   ReactCommon: f4bb9e5209ea5c3c6ab25e100895119e58d6e50a
   ReactNativeFileAccess: 4530e3be4d5069454c6c6389096d8cb78c897f2c
+  RNCPicker: 32ca102146bc7d34a8b93a998d9938d9f9ec7898
   RNReactNativeHapticFeedback: afa5bf2794aecbb2dba2525329253da0d66656df
   RNScreens: 85d3880b52d34db7b8eeebe2f1a0e807c05e69fa
+  RNSiriShortcuts: ba7b5b8f2b92fdce065bf87016ab05aa1c577b51
   RNSound: 6c156f925295bdc83e8e422e7d8b38d33bc71852
   RNVectorIcons: 8b5bb0fa61d54cd2020af4f24a51841ce365c7e9
   SocketRocket: f32cd54efbe0f095c4d7594881e52619cfe80b17

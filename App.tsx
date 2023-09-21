@@ -1,19 +1,17 @@
 import React from 'react';
+import { initializeSounds } from './src/utils/sound';
 import { StatusBar } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import Icon from 'react-native-vector-icons/Feather';
-import {
-  SafeAreaProvider,
-} from 'react-native-safe-area-context';
-import Profile from './src/screens/profile';
-import Home from './src/screens/home';
-import AddSound from './src/screens/add_sound';
-import { StoreProvider } from './src/context/store';
-import { TailwindProvider } from 'tailwind-rn';
+import { SafeAreaProvider } from 'react-native-safe-area-context';
 import utilities from './tailwind.json';
-import { initializeSounds } from './src/utils/sound';
+import Icon from 'react-native-vector-icons/Feather';
+import { TailwindProvider } from 'tailwind-rn';
 import { SoundProvider } from './src/context/sound';
+import { StoreProvider } from './src/context/store';
+import AddSound from './src/screens/add_sound';
+import Home from './src/screens/home';
+import Profile from './src/screens/profile';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
 initializeSounds();
 
@@ -36,7 +34,6 @@ const Tab = createBottomTabNavigator();
 
 export default function App() {
   return (
-    
     <SafeAreaProvider>
       <StatusBar barStyle="dark-content" translucent={true} />
       <StoreProvider>

@@ -20,12 +20,14 @@ export const Input: React.FC<inputType> = ({ placeholder, style, setValue, value
   );
 };
 
+export const inputStyle = {
+  fontSize: 16,
+  padding: 10,
+  backgroundColor: PlatformColor('label'),
+  color: '#000',
+  borderRadius: 15,
+};
+
 const styles = StyleSheet.create({
-  input: {
-    fontSize: 16,
-    padding: 10,
-    backgroundColor: PlatformColor('label'),
-    color: '#000',
-    borderRadius: 15,
-  },
+  input: inputStyle,  
 });

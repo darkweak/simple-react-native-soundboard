@@ -1309,6 +1309,11 @@
   resolved "https://registry.yarnpkg.com/@react-native-community/hooks/-/hooks-2.8.1.tgz#6e785431db49318048fdd14b601998437b6cc200"
   integrity sha512-DCmCIC0Gn9m6K0Mlg2MwNmTxMEpBu5lTLsI6b/XUAv/vLGa6o+X7RhCai4FWeqkjCU36+ZOwaLzDo4NBWMXaoQ==
 
+"@react-native-picker/picker@^2.5.0":
+  version "2.5.0"
+  resolved "https://registry.yarnpkg.com/@react-native-picker/picker/-/picker-2.5.0.tgz#25fcb53007241f36ede79a1f8d26c7a85e22c412"
+  integrity sha512-AEZPKwXavmP4VkUUD6bskCrNF+zgd1RvsXJ208YewZSikGZCo0RLlnQxPDrdKoFpbigSYxbvRU5d8h3TzzeQ8Q==
+
 "@react-native/assets@1.0.0":
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/@react-native/assets/-/assets-1.0.0.tgz#c6f9bf63d274bafc8e970628de24986b30a55c8e"
@@ -6536,6 +6541,11 @@ react-is@^17.0.1, react-is@^17.0.2:
   resolved "https://registry.yarnpkg.com/react-is/-/react-is-17.0.2.tgz#e691d4a8e9c789365655539ab372762b0efb54f0"
   integrity sha512-w2GsyukL62IJnlaff/nRegPQR94C/XXamvMWmSHRJ4y7Ts/4ocGRmTHvOs8PSE6pB3dWOrD/nueuU5sduBsQ4w==
 
+react-native-bouncy-checkbox@^3.0.7:
+  version "3.0.7"
+  resolved "https://registry.yarnpkg.com/react-native-bouncy-checkbox/-/react-native-bouncy-checkbox-3.0.7.tgz#011aef92b4fbde2a1f223165626c56a9ffe637fb"
+  integrity sha512-776TgMGt9wTpOQA1TcvFjL5VUn6o945wFYf3Ztqva62/vT2o3JAezLiP7hYh2Svd+PewfWBYSPMs4jeaSoS8Sg==
+
 react-native-codegen@^0.69.2:
   version "0.69.2"
   resolved "https://registry.yarnpkg.com/react-native-codegen/-/react-native-codegen-0.69.2.tgz#e33ac3b1486de59ddae687b731ddbfcef8af0e4e"
@@ -6578,6 +6588,11 @@ react-native-screens@^3.24.0:
   dependencies:
     react-freeze "^1.0.0"
     warn-once "^0.1.0"
+
+react-native-siri-shortcut@^3.2.3:
+  version "3.2.3"
+  resolved "https://registry.yarnpkg.com/react-native-siri-shortcut/-/react-native-siri-shortcut-3.2.3.tgz#a988e0bf32f2c39776e4a35baddcbd3a8bb4ee7f"
+  integrity sha512-EW6bh5whUhVZIz0Byx9pexuhNtY5iLE/mFORMNWwfhNabW1A837YBH3zcKiilgY8JZ8tKcX5rTgrQoJJoTUvwA==
 
 react-native-sound@^0.11.2:
   version "0.11.2"

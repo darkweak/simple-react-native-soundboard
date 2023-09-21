@@ -1,9 +1,11 @@
 import React, { Dispatch, SetStateAction, createContext, useContext, useEffect, useState } from 'react';
 import RNStorage from 'react-native-encrypted-storage';
+import { Item } from '../types/Item';
 
 type Store = {
     isSensitiveContentEnabled?: boolean;
     isTextMode?: boolean;
+    soundsShortcut?: ReadonlyArray<Item>;
     setStore: Dispatch<SetStateAction<Store>>;
 }
 

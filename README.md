@@ -16,9 +16,12 @@ cd ios && pod install && cd -
 yarn ios
 ```
 
-## Deployment
+## Development
 ```
 yarn ios --device # If you have only one connected device
+```
+```
+yarn dev:tailwind # To watch and rebuild styles
 ```
 
 ## How to add more sounds
@@ -41,7 +44,7 @@ Add the sound to the `src/utils/sound.ts` list.
 ```typescript
 // src/utils/sound.ts
 
-const the_sound_name_without_mp3_extension = new Sound(require(assetPath + 'the_sound_name_without_mp3_extension.mp3'), console.log);
+const the_sound_name_without_mp3_extension = importSound(require(assetPath + 'the_sound_name_without_mp3_extension.mp3'));
 
 export const mappedSounds: Record<string, any> = {
     //...

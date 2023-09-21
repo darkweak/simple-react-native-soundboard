@@ -23,8 +23,6 @@ export const Item = ({ size, item }: innerProps) => {
     sound.play();
   }
 
-  // React.useEffect(() => () => { sound?.release(); }, [sound]);
-
   return (
     <View style={{height: size, width: size}}>
       <View style={tailwind('p-2 h-full w-full')}>
