@@ -1,5 +1,5 @@
 import React, { useMemo, useState } from 'react';
-import { RefreshControl, ScrollView, Text, View } from 'react-native';
+import { PlatformColor, RefreshControl, ScrollView, Text, View } from 'react-native';
 import { SimpleList } from './Simple';
 import { useTailwind } from 'tailwind-rn';
 import { Item as ItemType } from '../../types/Item';
@@ -60,7 +60,7 @@ export const Alphabetical = ({ items }: innerProps) => {
         {
           Object.keys(mappedList).sort().map(k => (
             <View key={k}>
-              <Text style={tailwind('text-3xl pt-2 px-4 font-extrabold')}>{k}</Text>
+              <Text style={{...tailwind('text-3xl pt-2 px-4 font-extrabold'), color: PlatformColor('tertiaryLabel')}}>{k}</Text>
               <SimpleList items={mappedList[k]} />
             </View>
           ))

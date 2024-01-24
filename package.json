@@ -25,6 +25,7 @@
     "react-native-screens": "^3.24.0",
     "react-native-siri-shortcut": "^3.2.3",
     "react-native-sound": "^0.11.2",
+    "react-native-uuid": "^2.0.1",
     "react-native-vector-icons": "^10.0.0",
     "tailwind-rn": "^4.2.0"
   },

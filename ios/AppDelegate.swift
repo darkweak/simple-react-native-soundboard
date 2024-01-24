@@ -21,7 +21,7 @@ class PlaySound {
       guard filemanagerAssetsPath != nil else {
         return
       }
-      
+
       soundPath = filemanagerAssetsPath!.appendingPathComponent("\(sound).mp3").path
     }
 
@@ -33,7 +33,7 @@ class PlaySound {
       player.prepareToPlay()
       try AVAudioSession.sharedInstance().setCategory(.playback, mode: .default, options: [])
       try AVAudioSession.sharedInstance().setActive(true)
-       
+
       player.play()
     }
     catch{
@@ -46,17 +46,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
   var window: UIWindow?
   var bridge: RCTBridge!
   var player: PlaySound?
-  // var avPlayer = AVAudioPlayer()
-  
+
   func getPlayer() -> PlaySound {
     if (player == nil) {
       player = PlaySound()
-      
     }
 
     return player!
   }
-  
+
   func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
     let jsCodeLocation: URL
     jsCodeLocation = RCTBundleURLProvider.sharedSettings().jsBundleURL(forBundleRoot: "index")
@@ -69,13 +67,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     return true
   }
-  
+
   func parseUserInfos(infos: [AnyHashable : Any]?) -> [String: String] {
     guard let userInfo = infos as? NSDictionary else {return [:]}
 
     return userInfo as! [String: String]
   }
-  
+
   func playSound(sound: String) {
     getPlayer().startSound(sound: sound)
   }
@@ -83,7 +81,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
   func application(_ application: UIApplication, continue userActivity: NSUserActivity, restorationHandler: @escaping ([UIUserActivityRestoring]?) -> Void) -> Bool {
     let userInfo = parseUserInfos(infos: userActivity.userInfo)
     self.playSound(sound: userInfo["name"]!)
-    
+
     return true
   }
 }

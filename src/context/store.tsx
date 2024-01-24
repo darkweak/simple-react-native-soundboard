@@ -6,6 +6,7 @@ type Store = {
     isSensitiveContentEnabled?: boolean;
     isTextMode?: boolean;
     soundsShortcut?: ReadonlyArray<Item>;
+    hiddenDefaultSounds?: ReadonlyArray<Item>;
     setStore: Dispatch<SetStateAction<Store>>;
 }
 

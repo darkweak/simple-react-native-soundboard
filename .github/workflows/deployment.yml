@@ -1,7 +1,7 @@
 name: iOS deployment
 
 env:
-  BUILD_VERSION: "0.1.8"
+  BUILD_VERSION: "0.1.9"
 
 on:
   workflow_dispatch:
@@ -18,7 +18,7 @@ jobs:
 
     steps:
       - name: Check out Git repository
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Get yarn cache directory path
         id: yarn-cache-dir-path
@@ -57,7 +57,7 @@ jobs:
         run: APP_DEVELOPMENT_TEAM_ID=${{ secrets.IOS_TEAM_ID }} pod install --repo-update && cd ..
 
       - name: Build iOS App
-        uses:  yukiarrr/ios-build-action@v1.11.0
+        uses:  yukiarrr/ios-build-action@v1.11.2
         with:
           project-path: ios/Soundboard.xcodeproj
           p12-base64: ${{ secrets.IOS_P12_BASE64 }}

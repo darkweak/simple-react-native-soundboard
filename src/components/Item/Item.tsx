@@ -1,10 +1,13 @@
 import React from 'react';
-import { Text, View, TouchableOpacity } from 'react-native';
+import { Text, View, TouchableOpacity, PlatformColor } from 'react-native';
 import { useTailwind } from 'tailwind-rn';
 import Sound from 'react-native-sound';
 import { Item as ItemType } from '../../types/Item';
 import { mappedSounds } from '../../utils/sound';
 import { useStore } from '../../context/store';
+import { displaySuccessAlert } from '../../utils/alert';
+import { CustomSound } from '../../utils/custom';
+import { useRescanCustomSounds } from '../../context/sound';
 
 interface innerProps {
     size: number;
@@ -13,7 +16,9 @@ interface innerProps {
 
 export const Item = ({ size, item }: innerProps) => {
   const tailwind = useTailwind();
-  const { isTextMode } = useStore();
+  const store = useStore();
+  const { isTextMode, setStore } = store;
+  const rescan = useRescanCustomSounds();
 
   const [sound, setSound] = React.useState<Sound>();
 
@@ -26,12 +31,33 @@ export const Item = ({ size, item }: innerProps) => {
   return (
     <View style={{height: size, width: size}}>
       <View style={tailwind('p-2 h-full w-full')}>
-        <TouchableOpacity style={tailwind('border rounded-lg bg-white w-full h-full shadow justify-center items-center')} onPress={() => {
-          if (sound) {
-            sound.stop();
-          }
-          playSound(item);
-        }}>
+        <TouchableOpacity
+          style={{...tailwind('border rounded-lg w-full h-full shadow justify-center items-center'), borderColor: PlatformColor('tertiaryLabel'), backgroundColor: PlatformColor('tertiarySystemBackground')}}
+          onPress={() => {
+            if (sound) {
+              sound.stop();
+            }
+            playSound(item);
+          }} 
+          onLongPress={
+            () => displaySuccessAlert(
+              'Delete this sound',
+              `Do you want to delete ${item.image} ${item.name}?`,
+              [
+                { text: 'Cancel' },
+                { text: 'Confirm', onPress: () => {
+                  new CustomSound().remove(item.name, item.image).then(found => {
+                    if (!found) {
+                      setStore({
+                        ...store,
+                        hiddenDefaultSounds: [...(store.hiddenDefaultSounds ?? []), item]
+                      });
+                    }
+                  }).finally(() => rescan());
+                }}
+              ]
+            )}
+        >
           <Text style={tailwind('text-3xl')}>{ isTextMode ? item.name : item.image }</Text>
         </TouchableOpacity>
       </View>

@@ -1,5 +1,5 @@
 import React, { useMemo, useState } from 'react';
-import { Button, FlatList, Modal, SafeAreaView, Switch, Text, View } from 'react-native';
+import { Button, FlatList, Modal, PlatformColor, SafeAreaView, Switch, Text, View } from 'react-native';
 import { useTailwind } from 'tailwind-rn';
 import { useStore } from '../../context/store';
 import { CustomSound } from '../../utils/custom';
@@ -11,6 +11,7 @@ import BouncyCheckbox from 'react-native-bouncy-checkbox';
 import { Item } from '../../types/Item';
 
 const Profile = () => {
+  const color = PlatformColor('label');
   const tailwind = useTailwind();
   const store = useStore();
   const [visible, setVisible] = useState<boolean>(false);
@@ -48,15 +49,18 @@ const Profile = () => {
   return (
     <View style={tailwind('px-4 font-extrabold')}>
       <View style={{ flexDirection: 'row', justifyContent: 'space-between', paddingVertical: 16 }}>
-        <Text style={tailwind('pt-2')}>Enable sensitive content</Text>
+        <Text style={{ ...tailwind('pt-2'), color }}>Enable sensitive content</Text>
         <Switch onChange={({ nativeEvent: { value } }) => { setStore({ ...store, isSensitiveContentEnabled: value }); }} value={store?.isSensitiveContentEnabled} />
       </View>
       <View style={{ flexDirection: 'row', justifyContent: 'space-between', paddingVertical: 16 }}>
-        <Text style={tailwind('pt-2')}>Enable text mode</Text>
+        <Text style={{ ...tailwind('pt-2'), color }}>Enable text mode</Text>
         <Switch onChange={({ nativeEvent: { value } }) => { setStore({ ...store, isTextMode: value }); }} value={store?.isTextMode} />
       </View>
       <View style={tailwind('justify-between pt-8')}>
+        {/*
+        TODO: see if it's still relevant
         <Button onPress={() => setVisible(true)} title='Set shortcuts' />
+        */}
         <Modal
           presentationStyle='pageSheet'
           animationType='slide'

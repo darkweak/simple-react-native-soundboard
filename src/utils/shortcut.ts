@@ -34,7 +34,10 @@ export const setShortcuts = (sounds: ReadonlyArray<Item>) => {
     isEligibleForPublicIndexing: true,
     isEligibleForPrediction: true
   });
-  displaySuccessAlert('Set shortcut', 'Your shortcuts are now available!');
+
+  if (sounds.length) {
+    displaySuccessAlert('Set shortcut', 'Your shortcuts are now available!');
+  }
 };
 
 export const clearShortcuts = async () => {

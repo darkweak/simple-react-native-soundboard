@@ -1,6 +1,8 @@
 import { Dirs, FileSystem } from 'react-native-file-access';
 import Sound from 'react-native-sound';
 import { Item } from '../types/Item';
+import uuid from 'react-native-uuid';
+import { setShortcuts } from './shortcut';
 
 const blobToBase64 = (blob: Blob): Promise<string> => {
   const reader = new FileReader();
@@ -22,6 +24,7 @@ export class CustomSound {
         const values = await Promise.allSettled(
           (JSON.parse(val) as ReadonlyArray<Item>).map((v) => ({
             ...v,
+            id: v.id ?? uuid.v4().toString(),
             sound: new Sound(getSoundPath(v.name))
           }))
         );
@@ -36,13 +39,27 @@ export class CustomSound {
       });
   }
 
-  async persist(name: string, image: string): Promise<void> {
+  async persist(name: string, image: string, id: string): Promise<void> {
     const list = await FileSystem.readFile(getIndexerFilePath());
     const items = JSON.parse(list);
     await FileSystem.writeFile(
       getIndexerFilePath(),
-      JSON.stringify([...items, { name, image }])
+      JSON.stringify([...items, { name, image, id }])
     );
+  }
+
+  async remove(name: string, image: string): Promise<boolean> {
+    const list = JSON.parse(await FileSystem.readFile(getIndexerFilePath()));
+    const contains = list.some((item: { name: string, image: string }) => item.name == name && item.image == image);
+
+    await FileSystem.writeFile(
+      getIndexerFilePath(),
+      JSON.stringify(list.filter((item: { name: string, image: string }) => item.name !== name && item.image !== image))
+    );
+
+    await FileSystem.unlink(getSoundPath(name));
+
+    return contains;
   }
 
   download(url: string, name: string): Promise<boolean> {

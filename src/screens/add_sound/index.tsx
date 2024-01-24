@@ -5,6 +5,7 @@ import { Input } from '../../components/form/input';
 import { CustomSound } from '../../utils/custom';
 import { useRescanCustomSounds } from '../../context/sound';
 import { displayErrorAlert, displaySuccessAlert } from '../../utils/alert';
+import uuid from 'react-native-uuid';
 
 type fieldsType = {
     url?: string;
@@ -36,7 +37,7 @@ const AddSound = () => {
       const cs = new CustomSound();
       cs.download(fields.url, fields.name).then(r => {
         if (r) {
-          cs.persist(fields.name ?? 'default_name', fields.image ?? '🌝').then(rescan);
+          cs.persist(fields.name ?? 'default_name', fields.image ?? '🌝', uuid.v4().toString()).then(rescan);
           displayDownloadAlert('success', fields?.name ?? '', setFields);
         } else {
           displayDownloadAlert('fail', fields?.name ?? '');

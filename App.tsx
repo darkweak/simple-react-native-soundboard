@@ -1,7 +1,7 @@
 import React from 'react';
 import { initializeSounds } from './src/utils/sound';
-import { StatusBar } from 'react-native';
-import { NavigationContainer } from '@react-navigation/native';
+import { StatusBar, useColorScheme } from 'react-native';
+import { DarkTheme, DefaultTheme, NavigationContainer } from '@react-navigation/native';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import utilities from './tailwind.json';
 import Icon from 'react-native-vector-icons/Feather';
@@ -33,13 +33,15 @@ const tailwindExtensions = {
 const Tab = createBottomTabNavigator();
 
 export default function App() {
+  const scheme = useColorScheme();
+
   return (
     <SafeAreaProvider>
-      <StatusBar barStyle="dark-content" translucent={true} />
+      <StatusBar barStyle="default" />
       <StoreProvider>
         <SoundProvider>
           <TailwindProvider utilities={{...utilities, ...tailwindExtensions}}>
-            <NavigationContainer>
+            <NavigationContainer theme={scheme === 'dark' ? DarkTheme : DefaultTheme}>
               <Tab.Navigator>
                 <Tab.Screen 
                   name="Home"
