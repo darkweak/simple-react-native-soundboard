@@ -32,6 +32,7 @@
 		5DCACB8F33CDC322A6C60F78 /* libPods-Soundboard.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Soundboard.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = Soundboard/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		89C6BE57DB24E9ADA2F236DE /* Pods-Soundboard-SoundboardTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Soundboard-SoundboardTests.release.xcconfig"; path = "Target Support Files/Pods-Soundboard-SoundboardTests/Pods-Soundboard-SoundboardTests.release.xcconfig"; sourceTree = "<group>"; };
+		E457F1E22B626C4E000BA348 /* Soundboard.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; name = Soundboard.entitlements; path = Soundboard/Soundboard.entitlements; sourceTree = "<group>"; };
 		E478124F2B619E1C00F00C5A /* PlayFavoriteIntent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayFavoriteIntent.swift; sourceTree = "<group>"; };
 		E4B20B712ABC4D1800ACC12A /* Soundboard-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Soundboard-Bridging-Header.h"; sourceTree = "<group>"; };
 		E4B20B722ABC4D1900ACC12A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -70,6 +71,7 @@
 		13B07FAE1A68108700A75B9A /* Soundboard */ = {
 			isa = PBXGroup;
 			children = (
+				E457F1E22B626C4E000BA348 /* Soundboard.entitlements */,
 				13B07FAF1A68108700A75B9A /* AppDelegate.h.bak */,
 				13B07FB01A68108700A75B9A /* AppDelegate.mm.bak */,
 				E4B20B722ABC4D1900ACC12A /* AppDelegate.swift */,
@@ -317,6 +319,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = Soundboard/Soundboard.entitlements;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = J88M2A5FAK;
 				ENABLE_BITCODE = NO;
@@ -354,6 +357,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = Soundboard/Soundboard.entitlements;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = J88M2A5FAK;
 				INFOPLIST_FILE = Soundboard/Info.plist;
