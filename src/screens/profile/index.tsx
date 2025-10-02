@@ -7,6 +7,7 @@ import {
   SafeAreaView,
   Switch,
   Text,
+  TouchableHighlight,
   View
 } from 'react-native';
 import { useTailwind } from 'tailwind-rn';
@@ -19,6 +20,7 @@ import { clearShortcuts, setShortcuts } from '../../utils/shortcut';
 import BouncyCheckbox from 'react-native-bouncy-checkbox';
 import { Item } from '../../types/Item';
 import { Exporter } from '../../utils/exporter';
+import Icon from 'react-native-vector-icons/Feather';
 
 const Profile = () => {
   const color = PlatformColor('label');
@@ -202,7 +204,7 @@ const Profile = () => {
                   );
             });
           }}
-          title='Import source'
+          title='Import your sounds'
         />
       </View>
       <View style={tailwind('flex items-center justify-center pt-4')}>
@@ -218,7 +220,7 @@ const Profile = () => {
                 )
               );
           }}
-          title='Export data'
+          title='Export your sounds'
         />
       </View>
       <View style={tailwind('flex items-center justify-center pt-4')}>

@@ -19,7 +19,7 @@ export class Exporter {
           exportZipPath
         );
 
-        Share.share({
+        await Share.share({
           title: 'Soundboard sounds export',
           message: 'Share your favorite sounds with anyone',
           url: 'file://' + zipPath
@@ -59,8 +59,6 @@ export class Exporter {
         },
         { founds: {}, items: [] }
       );
-
-      console.log(items);
 
       await FileSystem.writeFile(getIndexerFilePath(), JSON.stringify(items));
 

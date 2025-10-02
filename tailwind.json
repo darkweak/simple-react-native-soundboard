@@ -13,6 +13,17 @@
 			"marginBottom": 8
 		}
 	},
+	"my-auto": {
+		"style": {
+			"marginTop": "auto",
+			"marginBottom": "auto"
+		}
+	},
+	"mt-auto": {
+		"style": {
+			"marginTop": "auto"
+		}
+	},
 	"flex": {
 		"style": {
 			"display": "flex"

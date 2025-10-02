@@ -7,6 +7,15 @@
   margin-bottom: 0.5rem
 }
 
+.my-auto {
+  margin-top: auto;
+  margin-bottom: auto
+}
+
+.mt-auto {
+  margin-top: auto
+}
+
 .flex {
   display: flex
 }

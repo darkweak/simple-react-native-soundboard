@@ -1,7 +1,7 @@
 name: iOS deployment
 
 env:
-  BUILD_VERSION: "0.1.10"
+  BUILD_VERSION: "0.1.11"
 
 on:
   workflow_dispatch:
@@ -61,7 +61,7 @@ jobs:
         run: APP_DEVELOPMENT_TEAM_ID=${{ secrets.IOS_TEAM_ID }} pod install --repo-update && cd ..
 
       - name: Build iOS App
-        uses:  yukiarrr/ios-build-action@v1.11.2
+        uses:  yukiarrr/ios-build-action@v1.12.0
         with:
           project-path: ios/Soundboard.xcodeproj
           p12-base64: ${{ secrets.IOS_P12_BASE64 }}
