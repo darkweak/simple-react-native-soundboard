@@ -2,7 +2,6 @@ import { Dirs, FileSystem } from 'react-native-file-access';
 import Sound from 'react-native-sound';
 import { Item } from '../types/Item';
 import uuid from 'react-native-uuid';
-import { setShortcuts } from './shortcut';
 
 const blobToBase64 = (blob: Blob): Promise<string> => {
   const reader = new FileReader();
@@ -14,7 +13,7 @@ const blobToBase64 = (blob: Blob): Promise<string> => {
   });
 };
 
-const getIndexerFilePath = () => `${Dirs.DocumentDir}/indexer.json`;
+export const getIndexerFilePath = () => `${Dirs.DocumentDir}/indexer.json`;
 export const getSoundPath = (name: string) => `${Dirs.DocumentDir}/${name}.mp3`;
 
 export class CustomSound {
@@ -50,11 +49,19 @@ export class CustomSound {
 
   async remove(name: string, image: string): Promise<boolean> {
     const list = JSON.parse(await FileSystem.readFile(getIndexerFilePath()));
-    const contains = list.some((item: { name: string, image: string }) => item.name == name && item.image == image);
+    const contains = list.some(
+      (item: { name: string; image: string }) =>
+        item.name == name && item.image == image
+    );
 
     await FileSystem.writeFile(
       getIndexerFilePath(),
-      JSON.stringify(list.filter((item: { name: string, image: string }) => item.name !== name && item.image !== image))
+      JSON.stringify(
+        list.filter(
+          (item: { name: string; image: string }) =>
+            item.name !== name && item.image !== image
+        )
+      )
     );
 
     await FileSystem.unlink(getSoundPath(name));

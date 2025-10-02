@@ -4,23 +4,33 @@ import { Item } from '../Item/Item';
 import { Item as ItemType } from '../../types/Item';
 
 interface innerProps {
-    items: ReadonlyArray<ItemType>;
+  items: ReadonlyArray<ItemType>;
 }
 
 const styles = StyleSheet.create({
   row: {
     flexDirection: 'row',
     flexWrap: 'wrap',
-    padding: 5,
+    padding: 5
   }
 });
 
 export const SimpleList = ({ items }: innerProps) => {
   const [size, setSize] = useState(0);
   return (
-    <View style={styles.row} onLayout={({ nativeEvent: { layout: { width } } }) => {setSize((width-10)/4);}}>
-      {
-        items.map((item, i) => <Item key={i+item.name} item={item} size={size} />)
-      }
+    <View
+      style={styles.row}
+      onLayout={({
+        nativeEvent: {
+          layout: { width }
+        }
+      }) => {
+        setSize((width - 10) / 4);
+      }}
+    >
+      {items.map((item, i) => (
+        <Item key={i + item.name} item={item} size={size} />
+      ))}
     </View>
-  );};
+  );
+};

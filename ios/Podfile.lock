@@ -282,6 +282,8 @@ PODS:
   - React-jsinspector (0.72.10)
   - React-logger (0.72.10):
     - glog
+  - react-native-document-picker (9.3.1):
+    - React-Core
   - react-native-encrypted-storage (4.0.3):
     - React-Core
   - react-native-safe-area-context (4.8.2):
@@ -411,7 +413,15 @@ PODS:
   - RNVectorIcons (10.0.3):
     - RCT-Folly (= 2021.07.22.00)
     - React-Core
+  - RNZipArchive (7.0.2):
+    - React-Core
+    - RNZipArchive/Core (= 7.0.2)
+    - SSZipArchive (~> 2.5.5)
+  - RNZipArchive/Core (7.0.2):
+    - React-Core
+    - SSZipArchive (~> 2.5.5)
   - SocketRocket (0.6.1)
+  - SSZipArchive (2.5.5)
   - Yoga (1.14.0)
   - ZIPFoundation (0.9.11)
 
@@ -437,6 +447,7 @@ DEPENDENCIES:
   - React-jsiexecutor (from `../node_modules/react-native/ReactCommon/jsiexecutor`)
   - React-jsinspector (from `../node_modules/react-native/ReactCommon/jsinspector`)
   - React-logger (from `../node_modules/react-native/ReactCommon/logger`)
+  - "react-native-document-picker (from `../node_modules/@react-native-documents/picker`)"
   - react-native-encrypted-storage (from `../node_modules/react-native-encrypted-storage`)
   - react-native-safe-area-context (from `../node_modules/react-native-safe-area-context`)
   - React-NativeModulesApple (from `../node_modules/react-native/ReactCommon/react/nativemodule/core/platform/ios`)
@@ -463,12 +474,14 @@ DEPENDENCIES:
   - RNSiriShortcuts (from `../node_modules/react-native-siri-shortcut`)
   - RNSound (from `../node_modules/react-native-sound`)
   - RNVectorIcons (from `../node_modules/react-native-vector-icons`)
+  - RNZipArchive (from `../node_modules/react-native-zip-archive`)
   - Yoga (from `../node_modules/react-native/ReactCommon/yoga`)
 
 SPEC REPOS:
   trunk:
     - fmt
     - SocketRocket
+    - SSZipArchive
     - ZIPFoundation
 
 EXTERNAL SOURCES:
@@ -512,6 +525,8 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native/ReactCommon/jsinspector"
   React-logger:
     :path: "../node_modules/react-native/ReactCommon/logger"
+  react-native-document-picker:
+    :path: "../node_modules/@react-native-documents/picker"
   react-native-encrypted-storage:
     :path: "../node_modules/react-native-encrypted-storage"
   react-native-safe-area-context:
@@ -564,6 +579,8 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native-sound"
   RNVectorIcons:
     :path: "../node_modules/react-native-vector-icons"
+  RNZipArchive:
+    :path: "../node_modules/react-native-zip-archive"
   Yoga:
     :path: "../node_modules/react-native/ReactCommon/yoga"
 
@@ -589,6 +606,7 @@ SPEC CHECKSUMS:
   React-jsiexecutor: 542a507e6d3985fda431c614fd456aebf59bdc66
   React-jsinspector: de0198127395fec3058140a20c045167f761bb16
   React-logger: dc3a2b174d79c2da635059212747d8d929b54e06
+  react-native-document-picker: 18738fa126d527b91ade1d32b02084fba4848881
   react-native-encrypted-storage: db300a3f2f0aba1e818417c1c0a6be549038deb7
   react-native-safe-area-context: 0ee144a6170530ccc37a0fd9388e28d06f516a89
   React-NativeModulesApple: 57ad574ee6d21ed097463ef885a188218129db8e
@@ -615,10 +633,12 @@ SPEC CHECKSUMS:
   RNSiriShortcuts: 17f5bcb1322eb9e9387101110db1cdb6ed82707c
   RNSound: 6c156f925295bdc83e8e422e7d8b38d33bc71852
   RNVectorIcons: 64e6a523ac30a3241efa9baf1ffbcc5e76ff747a
+  RNZipArchive: 421f5f056eddfe72f56ac4400608d202d2c53674
   SocketRocket: f32cd54efbe0f095c4d7594881e52619cfe80b17
+  SSZipArchive: c69881e8ac5521f0e622291387add5f60f30f3c4
   Yoga: d0003f849d2b5224c072cef6568b540d8bb15cd3
   ZIPFoundation: b1f0de4eed33e74a676f76e12559ab6b75990197
 
-PODFILE CHECKSUM: abe6c495c8ee36d385f93fca0be319f9521b49a5
+PODFILE CHECKSUM: 19bd66dc9b20a32e0df51166bd79d3dd4ceed85e
 
 COCOAPODS: 1.16.2

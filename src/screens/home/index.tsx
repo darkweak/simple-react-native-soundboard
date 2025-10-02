@@ -6,7 +6,16 @@ import { useStore } from '../../context/store';
 const Home = () => {
   const { hiddenDefaultSounds } = useStore();
 
-  return <Alphabetical items={items.filter(item => !(hiddenDefaultSounds ?? []).some(hidden => hidden.image === item.image && hidden.name === item.name))} />;
+  return (
+    <Alphabetical
+      items={items.filter(
+        (item) =>
+          !(hiddenDefaultSounds ?? []).some(
+            (hidden) => hidden.image === item.image && hidden.name === item.name
+          )
+      )}
+    />
+  );
 };
 
 export default Home;
